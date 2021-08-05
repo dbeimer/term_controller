@@ -1,9 +1,21 @@
-from ulauncher.api.client.Extension import Extension
+from ulauncher.api.client.Extension import Extensivon
 from ulauncher.api.client.EventListener import EventListener
 from ulauncher.api.shared.event import KeywordQueryEvent, ItemEnterEvent
 from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
 from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
+
+
+#tools
+import logging
+logger=logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+fh=logging.FileHandler('debug.log')
+fh.setLevel(logging.DEBUG)
+
+logger.addHandler(fh)
+
 
 
 class DemoExtension(Extension):
@@ -18,6 +30,7 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         items = []
         for i in range(5):
+            logger.info("imagen {}".format(i))
             items.append(ExtensionResultItem(icon='images/icon.png',
                                              name='Item %s' % i,
                                              description='Item description %s' % i,
