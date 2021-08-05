@@ -9,14 +9,6 @@ from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
 #tools
 import logging
 logger=logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-
-fh=logging.FileHandler('debug.log')
-fh.setLevel(logging.DEBUG)
-
-logger.addHandler(fh)
-
-
 
 class DemoExtension(Extension):
 
